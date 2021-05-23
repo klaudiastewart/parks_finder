@@ -3,6 +3,5 @@ class ParksController < ApplicationController
   def index
     park = params[:state]
     @parks = ParkFacade.get_parks(park)
-    # @parks = Park.all
   end
 end
