@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Park by state search' do
   describe 'happy path' do
     it 'allows a user to search for parks by state' do
-      # stub_request(:get, "https://developer.nps.gov//api/v1/parks?stateCode=TN").
-      #   to_return(status: 200, body: "")
-      #
       json_response = File.read('spec/fixtures/parks.json')
         stub_request(:get, "https://developer.nps.gov/api/v1/parks?api_key=H7qxTwHGsd7o7UfkwcefSENbBHoAl1Tr42p5ueuT&stateCode=TN").
         with(
