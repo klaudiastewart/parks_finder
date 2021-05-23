@@ -95,3 +95,15 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def stub_park_request
+  json_response = File.read('spec/fixtures/parks.json')
+    stub_request(:get, "https://developer.nps.gov/api/v1/parks?api_key=H7qxTwHGsd7o7UfkwcefSENbBHoAl1Tr42p5ueuT&stateCode=TN").
+    with(
+      headers: {
+      'Accept'=>'*/*',
+      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+      'User-Agent'=>'Faraday v1.4.2'
+      }).
+    to_return(status: 200, body: json_response, headers: {})
+end

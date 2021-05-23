@@ -3,16 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Park by state search' do
   describe 'happy path' do
     it 'allows a user to search for parks by state', :vcr do
-      # json_response = File.read('spec/fixtures/parks.json')
-      #   stub_request(:get, "https://developer.nps.gov/api/v1/parks?api_key=H7qxTwHGsd7o7UfkwcefSENbBHoAl1Tr42p5ueuT&stateCode=TN").
-      #   with(
-      #     headers: {
-      #    'Accept'=>'*/*',
-      #    'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-      #    'User-Agent'=>'Faraday v1.4.2'
-      #     }).
-      #   to_return(status: 200, body: json_response, headers: {})
-      # VCR.use_cassette('parks_in_state') do
+      # stub_park_request located in spec_helper
+
+      # VCR.use_cassette('parks_in_state') do...refactored into :vcr do above 
         visit root_path
 
         select "Tennessee", :from => "state"
