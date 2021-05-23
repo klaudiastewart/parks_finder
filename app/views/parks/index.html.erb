@@ -1,0 +1,17 @@
+<ul>
+  <% @parks.each do |park| %>
+    <li>
+      Name: <%= park.name %><br>
+      Description: <%= park.description %><br>
+      Directions: <%= park.directions %><br>
+      Open Hours: <% park.hours.each do |hour| %>
+        <ul>
+          <li>
+            Day: <%= hour[0].capitalize %>,
+            <%= hour[1] %>
+          </li>
+        </ul>
+      <% end %>
+  <% end %>
+    </li>
+</ul>
